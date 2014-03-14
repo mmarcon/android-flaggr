@@ -95,14 +95,37 @@ public final class Flaggr {
         return mContext.getSharedPreferences(FLAGGR_SHARED_PREFERENCES_FILENAME, Context.MODE_PRIVATE);
     }
 
+    /**
+     * Checks if the value of a flag can be overridden.
+     *
+     * @param flagId the flag id (e.g. R.id.my_awesome_flag)
+     * @return true if the value can be overridden, false otherwise.
+     */
     public boolean isOverridable(int flagId) {
         return getFlag(flagId).isOverridable();
     }
 
+    /**
+     * Check if the flag is enabled.
+     *
+     * @param flagId the flag id (e.g. R.id.my_awesome_flag)
+     * @return true if the value for the flag is true.
+     */
     public boolean isEnabled(int flagId) {
         return getFlag(flagId).getValue();
     }
 
+    /**
+     * If the flag is overridable, it overrides its value
+     * with true. Note that a non-overridable flag must be considered
+     * as a final variable, i.e. setting it to true when it is already
+     * true will throw an exception.
+     *
+     * The new value is saved in shared preferences.
+     *
+     * @param flagId the flag id (e.g. R.id.my_awesome_flag)
+     * @throws FlagNotOverridableException if the flag is not overridable
+     */
     public void enable(int flagId) {
         if(getFlag(flagId).isOverridable()) {
             getFlag(flagId).setValue(true);
@@ -113,6 +136,17 @@ public final class Flaggr {
         throw new FlagNotOverridableException(flagId);
     }
 
+    /**
+     * If the flag is overridable, it overrides its value
+     * with false. Note that a non-overridable flag must be considered
+     * as a final variable, i.e. setting it to false when it is already
+     * false will throw an exception.
+     *
+     * The new value is saved in shared preferences.
+     *
+     * @param flagId the flag id (e.g. R.id.my_awesome_flag)
+     * @throws FlagNotOverridableException if the flag is not overridable
+     */
     public void disable(int flagId) {
         if(getFlag(flagId).isOverridable()) {
             getFlag(flagId).setValue(false);
