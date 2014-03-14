@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        maven {
+            url 'http://bf-citf-arti1.rnd.nokia.com:8081/artifactory/maven2-repos'
+        }
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.8.+'
+    }
+}
+
+apply plugin: 'android'
+
+repositories {
+    maven {
+            url 'http://bf-citf-arti1.rnd.nokia.com:8081/artifactory/maven2-repos'
+    }
+}
+
+dependencies {
+/*
+    compile 'com.android.support:support-v4:18.0.+'
+    compile 'com.google.android.gms:play-services:4.0.30'
+    compile 'com.loopj.android.http:android-async-http:1.4.4'
+    compile 'com.koushikdutta.urlimageviewhelper:urlimageviewhelper:1.0.4'
+    compile 'com.here.live:LiveCore:1.2.0@jar'
+    compile 'com.glympse:GlympseApi:2.0.34@aar'
+*/
+    compile project(':flaggr')
+}
+
+android {
+    buildToolsVersion "19.0.1"
+    compileSdkVersion 19
+}
