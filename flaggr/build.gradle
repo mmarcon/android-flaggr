@@ -27,6 +27,7 @@ dependencies {
     compile 'com.here.live:LiveCore:1.2.0@jar'
     compile 'com.glympse:GlympseApi:2.0.34@aar'
 */
+    testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
 android {
