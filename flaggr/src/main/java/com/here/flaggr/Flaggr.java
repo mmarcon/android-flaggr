@@ -3,7 +3,6 @@ package com.here.flaggr;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.content.res.XmlResourceParser;
 import com.here.flaggr.internal.Flag;
 
 import java.util.HashMap;
@@ -68,10 +67,8 @@ public final class Flaggr {
         Resources resources = mContext.getResources();
         boolean value = resources.getBoolean(flagId);
 
-        XmlResourceParser xml = resources.getXml(flagId);
-        //Uhmm:
-        String namespace = xml.getNamespace();
-        boolean overridable = xml.getAttributeBooleanValue(namespace, FLAGGR_OVERRIDABLE_ATTRIBUTE_NAME, true);
+        String resourceName = resources.getResourceEntryName(flagId);
+        boolean overridable = resourceName.startsWith("_");
 
         if(overridable) {
             //If the value is overridable, check if a different value is provided in shared preferences

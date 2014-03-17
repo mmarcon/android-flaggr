@@ -2,17 +2,17 @@ package com.here.flaggr.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.TextView;
+import com.here.flaggr.Flaggr;
 
 public class HelloWorldActivity extends Activity {
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView text = new TextView(this);
-        text.setText("Hello World, Android");
-        setContentView(text);
-        //setContentView(R.layout.main);
+        if(Flaggr.with(this).isEnabled(R.bool._new_layout)) {
+            setContentView(R.layout.new_main);
+        } else {
+            setContentView(R.layout.main);
+        }
     }
 }
