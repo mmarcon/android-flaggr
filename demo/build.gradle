@@ -1,8 +1,6 @@
 buildscript {
     repositories {
-        maven {
-            url 'http://bf-citf-arti1.rnd.nokia.com:8081/artifactory/maven2-repos'
-        }
+        mavenCentral()
     }
 
     dependencies {
@@ -13,9 +11,7 @@ buildscript {
 apply plugin: 'android'
 
 repositories {
-    maven {
-            url 'http://bf-citf-arti1.rnd.nokia.com:8081/artifactory/maven2-repos'
-    }
+    mavenCentral()
 }
 
 dependencies {
