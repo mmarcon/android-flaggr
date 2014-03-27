@@ -131,6 +131,14 @@ public final class Flaggr {
         throw new FlagNotOverridableException(flagId);
     }
 
+    public void enable(String stringIdentifier) {
+        int flagId = getFlagId(stringIdentifier);
+        if(flagId == 0) {
+            throw new FlagNotFoundException(stringIdentifier);
+        }
+        enable(flagId);
+    }
+
     /**
      * If the flag is overridable, it overrides its value
      * with false. Note that a non-overridable flag must be considered
@@ -149,5 +157,17 @@ public final class Flaggr {
             return;
         }
         throw new FlagNotOverridableException(flagId);
+    }
+
+    public void disable(String stringIdentifier) {
+        int flagId = getFlagId(stringIdentifier);
+        if(flagId == 0) {
+            throw new FlagNotFoundException(stringIdentifier);
+        }
+        disable(flagId);
+    }
+
+    protected int getFlagId(String stringIdentifier) {
+        return mContext.getResources().getIdentifier(stringIdentifier , "bool", mContext.getPackageName());
     }
 }

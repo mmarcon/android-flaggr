@@ -1,7 +1,9 @@
 package com.here.flaggr.intent;
 
+import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
+import android.text.TextUtils;
+import com.here.flaggr.Flaggr;
 
 /**
  * User: mmarcon
@@ -10,29 +12,38 @@ import android.net.Uri;
  */
 public class FlaggrIntent {
 
-    //Expecting something like:
-    //flaggr://new_awesome_feature/enable
-    //flaggr://new_awesome_feature/disable
-    public static final String SCHEME = "flaggr";
+    private static final String FLAGGR_INTENT_NS = FlaggrIntent.class.getCanonicalName();
+
+    public static final String ACTION_FLAGGR = FLAGGR_INTENT_NS + ".ACTION_FLAGGR";
+    public static final String ACTION_FLAGGR_FLAG_NAME = FLAGGR_INTENT_NS + ".ACTION_FLAGGR_FLAG_NAME";
+    public static final String ACTION_FLAGGR_FLAG_VALUE = FLAGGR_INTENT_NS + ".ACTION_FLAGGR_FLAG_VALUE";
 
     private Intent mIntent;
+    private Context mContext;
 
-    public FlaggrIntent(Intent intent) {
+    public FlaggrIntent(Context context, Intent intent) {
         mIntent = intent;
+        mContext = context;
     }
 
     public void parse() {
         String action = mIntent.getAction();
 
-        if(!action.equals(Intent.ACTION_DEFAULT)) {
+        if(!action.equals(ACTION_FLAGGR)) {
             return;
         }
 
-        Uri data = mIntent.getData();
-        if(!data.getScheme().equals(SCHEME)) {
+        String flagName = mIntent.getStringExtra(ACTION_FLAGGR_FLAG_NAME);
+        boolean flagValue = mIntent.getBooleanExtra(ACTION_FLAGGR_FLAG_VALUE, false);
+
+        if(TextUtils.isEmpty(flagName)) {
             return;
         }
-        String feature = data.getHost();
-        String enable = data.getLastPathSegment();
+
+        if(flagValue) {
+            Flaggr.with(mContext).enable(flagName);
+        } else {
+            Flaggr.with(mContext).disable(flagName);
+        }
     }
 }

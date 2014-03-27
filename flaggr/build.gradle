@@ -7,17 +7,23 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.8.+'
-        classpath 'com.novoda.gradle:robolectric-plugin:0.0.1-SNAPSHOT'
+        classpath 'com.squareup.gradle:gradle-android-test-plugin:0.9.1-SNAPSHOT'
     }
 }
 
 apply plugin: 'android-library'
-apply plugin: 'robolectric'
+apply plugin: 'android-test'
 
 repositories {
     mavenCentral()
     maven {
         url 'https://oss.sonatype.org/content/repositories/snapshots'
+    }
+}
+
+android {
+    sourceSets {
+      instrumentTest.setRoot('src/test')
     }
 }
 
@@ -30,8 +36,10 @@ dependencies {
     compile 'com.here.live:LiveCore:1.2.0@jar'
     compile 'com.glympse:GlympseApi:2.0.34@aar'
 */
-    instrumentTestCompile 'org.robolectric:robolectric:2.+'
-    instrumentTestCompile 'junit:junit:4.+'
+    testCompile 'junit:junit:4.10'
+    testCompile 'org.robolectric:robolectric:2.1.+'
+    instrumentTestCompile 'junit:junit:4.10'
+    instrumentTestCompile 'org.robolectric:robolectric:2.3-SNAPSHOT'
 }
 
 android {
