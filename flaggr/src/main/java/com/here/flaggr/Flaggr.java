@@ -25,8 +25,6 @@ public final class Flaggr {
     protected static final String FLAGGR_SHARED_PREFERENCES_FILENAME = "com.here.flaggr.SHARED_PREFERENCES_FILENAME";
     protected static final String FLAGGR_SHARED_PREFERENCES_PREFIX = "FLAGGR_ID_";
 
-    public static final String FLAGGR_OVERRIDABLE_ATTRIBUTE_NAME = "overridable";
-
     /**
      * The Flaggr singleton
      */
