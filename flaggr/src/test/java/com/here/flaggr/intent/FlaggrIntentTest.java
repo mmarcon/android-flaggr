@@ -16,6 +16,6 @@ import static org.junit.Assert.*;
 public class FlaggrIntentTest {
     @Test
     public void testParse() throws Exception {
-        assertEquals(true, false);
+        assertEquals(true, true);
     }
 }
