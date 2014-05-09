@@ -49,7 +49,7 @@ public final class Flaggr {
      *                resources and shared preferences.
      * @return the Flaggr instance.
      */
-    public static Flaggr with(Context context) {
+    public static synchronized Flaggr with(Context context) {
         if(FLAGGR == null) {
             FLAGGR = new Flaggr(context);
         }
