@@ -12,7 +12,7 @@ public class HelloWorldActivity extends Activity {
         if(Flaggr.with(this).isEnabled(R.bool._new_layout)) {
             setContentView(R.layout.new_main);
         } else {
-            setContentView(R.layout.main);
+            setContentView(R.layout.old_main);
         }
     }
 }

@@ -5,14 +5,13 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:gravity="center_vertical"
-              android:background="#00ced1">
+              android:background="#FF6347">
 
     <TextView android:layout_width="fill_parent"
               android:layout_height="wrap_content"
               android:gravity="center"
               android:textSize="60sp"
-              android:textColor="#222222"
               android:fontFamily="sans-serif-light"
-              android:text="New Layout"/>
+              android:text="Old Layout"/>
 
 </LinearLayout>
