@@ -15,14 +15,6 @@ repositories {
 }
 
 dependencies {
-/*
-    compile 'com.android.support:support-v4:18.0.+'
-    compile 'com.google.android.gms:play-services:4.0.30'
-    compile 'com.loopj.android.http:android-async-http:1.4.4'
-    compile 'com.koushikdutta.urlimageviewhelper:urlimageviewhelper:1.0.4'
-    compile 'com.here.live:LiveCore:1.2.0@jar'
-    compile 'com.glympse:GlympseApi:2.0.34@aar'
-*/
     compile project(':flaggr')
 }
 

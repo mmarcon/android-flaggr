@@ -1,4 +1,4 @@
-package com.here.flaggr;
+package me.marcon.flaggr;
 
 /**
  * User: mmarcon

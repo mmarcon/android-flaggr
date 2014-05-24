@@ -1,9 +1,9 @@
-package com.here.flaggr;
+package me.marcon.flaggr;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import com.here.flaggr.internal.Flag;
+import me.marcon.flaggr.internal.Flag;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +22,7 @@ public final class Flaggr {
 
     private static final String TAG = Flaggr.class.getSimpleName();
 
-    protected static final String FLAGGR_SHARED_PREFERENCES_FILENAME = "com.here.flaggr.SHARED_PREFERENCES_FILENAME";
+    protected static final String FLAGGR_SHARED_PREFERENCES_FILENAME = "me.marcon.flaggr.SHARED_PREFERENCES_FILENAME";
     protected static final String FLAGGR_SHARED_PREFERENCES_PREFIX = "FLAGGR_ID_";
 
     /**

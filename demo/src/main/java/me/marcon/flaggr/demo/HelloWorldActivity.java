@@ -1,8 +1,8 @@
-package com.here.flaggr.demo;
+package me.marcon.flaggr.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import com.here.flaggr.Flaggr;
+import me.marcon.flaggr.Flaggr;
 
 public class HelloWorldActivity extends Activity {
     @Override
