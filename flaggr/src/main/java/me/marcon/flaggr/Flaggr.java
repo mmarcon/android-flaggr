@@ -153,7 +153,7 @@ public final class Flaggr {
     public void disable(int flagId) {
         if(getFlag(flagId).isOverridable()) {
             getFlag(flagId).setValue(false);
-            getPreferences().edit().putBoolean(getPreferenceName(flagId), true).commit();
+            getPreferences().edit().putBoolean(getPreferenceName(flagId), false).commit();
             return;
         }
         throw new FlagNotOverridableException(flagId);
