@@ -15,4 +15,4 @@ include 'shared'
 include 'api'
 include 'services:webservice'
 */
-include ':demo', ':flaggr'
+include ':demo', ':flaggr', ':togglr'
