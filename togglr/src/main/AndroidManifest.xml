@@ -8,8 +8,6 @@
             android:minSdkVersion="14"
             android:targetSdkVersion="19"/>
 
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-
     <application
             android:theme="@android:style/Theme.Holo.Light"
             android:icon="@drawable/ic_launcher"

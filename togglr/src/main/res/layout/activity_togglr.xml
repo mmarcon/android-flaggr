@@ -8,7 +8,7 @@
                 android:paddingBottom="@dimen/activity_vertical_margin"
                 tools:context="me.marcon.flaggr.togglr.TogglrActivity">
     <ListView
-            android:id="@+id/togglr_list"
+            android:id="@+id/togglrList"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
     </ListView>
