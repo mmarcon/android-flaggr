@@ -6,6 +6,7 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +15,7 @@ import android.widget.*;
 import me.marcon.flaggr.receiver.FlaggrReceiver;
 import me.marcon.flaggr.togglr.adapter.TogglrAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -63,6 +65,15 @@ public class TogglrActivity extends Activity {
         PackageManager packageManager = getPackageManager();
         return packageManager.queryBroadcastReceivers(flaggrIntent, PackageManager.GET_INTENT_FILTERS);
     }
+
+//    private List<String> scanFlags(ResolveInfo info) {
+//        try {
+//            Resources resources = getPackageManager().getResourcesForApplication(info.resolvePackageName);
+//        } catch (PackageManager.NameNotFoundException e) {
+//            return new ArrayList<String>();
+//        }
+//        return null;
+//    }
 
     private CharSequence getApplicationName(ResolveInfo resolveInfo) {
         return resolveInfo.loadLabel(getPackageManager());
